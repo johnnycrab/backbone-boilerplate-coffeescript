@@ -4,9 +4,4 @@ npm-debug.log
 build/node_modules/grunt/node_modules/glob/build
 .DS_Store
 backbone-boilerplate.sublime-project
-<<<<<<< HEAD
 backbone-boilerplate.sublime-workspace
-=======
-
-backbone-boilerplate.sublime-workspace
->>>>>>> Ignore sublime files
