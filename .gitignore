@@ -3,5 +3,5 @@ npm-debug.log
 .lock-wscript
 build/node_modules/grunt/node_modules/glob/build
 .DS_Store
-backbone-boilerplate.sublime-project
-backbone-boilerplate.sublime-workspace
+backbone-boilerplate-coffeescript.sublime-project
+backbone-boilerplate-coffeescript.sublime-workspace
