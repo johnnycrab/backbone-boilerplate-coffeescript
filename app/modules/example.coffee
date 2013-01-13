@@ -1,18 +1,11 @@
 define [
-		"namespace"
-
-		## Libs
-		"use!backbone"
-
-		## Modules
-
-		## Plugins
+		"app"
 	],
 	
-	(namespace, Backbone) ->
+	(app) ->
 
 		## Create a new module
-		Example = namespace.module()
+		Example = app.module()
 
 		## Example extendings
 		Example.Model = Backbone.Model.extend({
@@ -29,14 +22,7 @@ define [
 
 		## This will fetch the tutorial template and render it.
 		Example.Views.Tutorial = Backbone.View.extend(
-			template: "app/templates/example.html"
-			render: (done) ->
-				view = @
-				namespace.fetchTemplate @template, (tmpl) ->
-					view.el.innerHTML = tmpl()
-
-					##  If a done function is passed, call it with the element
-					done view.el  if _.isFunction(done)
+			template: "example"
 		)
 
 		## Required, return the module for AMD compliance

@@ -1,6 +1,12 @@
 Backbone Boilerplate
 ====================
 
+## Update:
+Added tbranyen's backbone.layoutmanager with some configs (see app.coffee)
+
+---
+
+
 This boilerplate is the product of much research and frustration.  Existing
 boilerplates freely modify Backbone core, lack a build process, and are
 very prescriptive; this boilerplate changes that.

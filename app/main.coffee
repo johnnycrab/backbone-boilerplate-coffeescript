@@ -1,49 +1,24 @@
 require [
-	"namespace"
+	'app'
+	'router'
+	'modules/example'
+], (app, Router, Example) ->
 
-	## Libs
-	"jquery"
-	"use!backbone" 
+	app.Router = new Router()
+	app.Layouts = {}
 
-	## Modules
-	"modules/example"
-], (namespace, $, Backbone, Example) ->
-
-	## Defining the application router, you can attach sub routers here.
-	Router = Backbone.Router.extend(
-		routes:
-			"": "index"
-			":hash": "index"
-
-		index: (hash) ->
-			tutorial = new Example.Views.Tutorial()
-
-			## Attach the tutorial to the DOM
-			tutorial.render (el) ->
-				$("#main").html el
-
-				## Fix for hashes in pushState and hash fragment
-				if hash and not @._alreadyTriggered
-					## Reset to home, pushState support automatically converts hashes
-					Backbone.history.navigate "", false
-
-					## Trigger the default browser behavior
-					location.hash = hash
-
-					## Set an internal flag to stop recursive looping
-					@._alreadyTriggered = true
-	)
-
-	## Shorthand the application namespace
-	app = namespace.app
+	app.Layouts.Main = app.useLayout 'main', 
+		views:
+			'.tutorial': new Example.Views.Tutorial()
+			
 
 	## Treat the jQuery ready function as the entry point to the application.
 	## Inside this function, kick-off all initialization, everything up to this
 	## point should be definitions.
 	$ ->
-		app.router = new Router()
 		Backbone.history.start pushState: true
 		
+
 	## All navigation that is relative should be passed through the navigate
 	## method, to be processed by the router.  If the link has a data-bypass
 	## attribute, bypass the delegation completely.
